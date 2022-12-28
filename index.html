@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" id="screen">
+            <div class="all_button">
+                <div>
+                    <button class="btn">(</button>
+                    <button class="btn">)</button>
+                    <button id="deleteMe">C</button>
+                    <button class="btn">%</button>
+                </div>
+                <div>
+                    <button class="btn">7</button>
+                    <button class="btn">8</button>
+                    <button class="btn">9</button>
+                    <button class="btn">*</button>
+                </div>
+                <div>
+                    <button class="btn">4</button>
+                    <button class="btn">5</button>
+                    <button class="btn">6</button>
+                    <button class="btn">-</button>
+                </div>
+                <div>
+                    <button class="btn">1</button>
+                    <button class="btn">2</button>
+                    <button class="btn">3</button>
+                    <button class="btn">+</button>
+                </div>
+                <div>
+                    <button class="btn">0</button>
+                    <button class="btn">.</button>
+                    <button class="btn" >/</button>
+                    <button id="equalTo">=</button>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+    <script>
+        //for show
+        function show(newValue){  
+            document.getElementById("screen").value+= newValue.target.innerText;
+        }
+
+        buttons = document.getElementsByClassName("btn");
+        for (item of buttons){
+            item.addEventListener("click",show,) 
+        }
+
+        //for delete
+        function eraseMe(){
+            document.getElementById("screen").value = "";
+        }
+        deleteMe = document.getElementById("deleteMe");
+        deleteMe.addEventListener("click",eraseMe);
+
+        //for calculate
+        function calculate(){
+            document.getElementById("screen").value = eval(document.getElementById("screen").value);
+        }
+        equalTo = document.getElementById("equalTo");
+        equalTo.addEventListener("click",calculate);
+
+    </script>
+</body>
+</html>
